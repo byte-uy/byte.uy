@@ -1,0 +1,16 @@
+$body-color: #333;
+
+body {
+    color: $body-color;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+.rounded {
+    border-radius: 1%;
+}
