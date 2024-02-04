@@ -1,5 +1,6 @@
 baseURL = 'https://mati.byte.uy/'
 title = 'MATI.BYTE.UY'
+paginate = 10
 
 defaultContentLanguage = 'es'
 defaultContentLanguageInSubdir = true
@@ -20,7 +21,6 @@ defaultContentLanguageInSubdir = true
     languageCode = 'en-US'
     [languages.en.params]
       description = 'Personal blog of Matias Arocena'
-  
 
 
 [module]
