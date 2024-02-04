@@ -1,0 +1,16 @@
+{{ define "main" }}
+  {{ .Content }}
+  {{ range site.RegularPages }}
+    {{ if eq .Type "image" }}
+      {{ partial "li/image.html" . }}
+    {{ else if eq .Type "microblog" }}
+      {{ partial "li/microblog.html" . }}
+    {{ else if eq .Type "like" }}
+      {{ partial "li/like.html" . }}
+    {{ else }}
+      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+      {{ .Summary }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+

@@ -1,0 +1,11 @@
+{{ define "main" }}
+  {{ partial "single/header.html" . }}
+
+  <div>
+    <img src="{{ .Params.Image }}" alt="{{ .Params.Description }}">
+  </div>
+  <p>{{ .Params.Description }}</p>
+
+  {{ partial "single/footer.html" . }}
+
+{{ end }}

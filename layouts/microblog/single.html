@@ -1,0 +1,9 @@
+{{ define "main" }}
+  {{ partial "single/header.html" . }}
+  📝
+  
+  <p>{{ .Params.content }}</p>
+
+  {{ partial "single/footer.html" . }}
+
+{{ end }}

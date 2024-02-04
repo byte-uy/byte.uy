@@ -1,0 +1,11 @@
+{{ define "main" }}
+  {{ partial "single/header.html" . }}
+  ❤️ 
+
+  <p>
+    <a href="{{ .Params.url }}" target="_blank">{{ .Params.title }}</a>
+  </p>
+
+  {{ partial "single/footer.html" . }}
+
+{{ end }}
