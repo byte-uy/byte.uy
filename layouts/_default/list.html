@@ -4,8 +4,8 @@
   {{ range .Paginator.Pages }}
     {{ if eq .Type "image" }}
       {{ partial "li/image.html" . }}
-    {{ else if eq .Type "microblog" }}
-      {{ partial "li/microblog.html" . }}
+    {{ else if eq .Type "note" }}
+      {{ partial "li/note.html" . }}
     {{ else if eq .Type "like" }}
       {{ partial "li/like.html" . }}
     {{ else }}

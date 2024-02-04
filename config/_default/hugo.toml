@@ -3,7 +3,7 @@ title = 'MATI.BYTE.UY'
 paginate = 10
 
 defaultContentLanguage = 'es'
-defaultContentLanguageInSubdir = true
+defaultContentLanguageInSubdir = false
 [languages]
   [languages.es]
     languageName = 'Español'
@@ -27,3 +27,8 @@ defaultContentLanguageInSubdir = true
   [module.hugoVersion]
     extended = false
     min = "0.116.0"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

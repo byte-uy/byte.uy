@@ -1,0 +1,33 @@
+<script>
+    window.store = {
+        {{ range .Site.Pages}}
+            "{{ .Permalink }}": {
+                "title": "{{ .Title  }}",
+                {{ if eq .Type  "note"  }}
+                "content": {{ .Params.content | plainify }}, // Strip out HTML tags
+                {{ else if eq .Type  "image" }}
+                "content": {{ .Params.description | plainify }}, // Strip out HTML tags
+                {{ else if eq .Type "like"  }}
+                "content": {{ .Params.title }}, // Strip out HTML tags
+                {{ else }}
+                "content": {{ .Content | plainify }}, // Strip out HTML tags
+                {{ end }}
+                "url": "{{ .Permalink }}",
+                "tags": [{{ range .Params.Tags }}"{{ . }}",{{ end }}],
+            },
+        {{ end }}
+    }
+</script>
+
+{{- with resources.Get "js/search.js" }}
+    {{- if eq hugo.Environment "development" }}
+        {{- with . | js.Build }}
+        <script src="{{ .RelPermalink }}"></script>
+        {{- end }}
+    {{- else }}
+        {{- $opts := dict "minify" true }}
+        {{- with . | js.Build $opts | fingerprint }}
+        <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+        {{- end }}
+    {{- end }}
+{{- end }}
