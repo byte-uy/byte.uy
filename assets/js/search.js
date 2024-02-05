@@ -3486,13 +3486,13 @@ function displayResults (results, store) {
             const item = store[results[n].ref]
             // build result list elements
             // if you want to style the list, edit this
+            var it = JSON.stringify(item);
             resultList += `
             <li>
             <h2>
             <a href="${item.url}">${item.title}</a>
             </h2>'
             <p>${item.content.substring(0, 150)}...</p>
-            <p>${item.tags}</p>
             </li>
             `;
         }

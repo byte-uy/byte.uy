@@ -2,18 +2,26 @@
     window.store = {
         {{ range .Site.Pages}}
             "{{ .Permalink }}": {
+                {{ if eq .Type "image" }}
+                "title": "{{ .Date }}",
+                {{ else if eq .Type "note" }}
+                "title": "{{ .Date }}",
+                {{ else }}
                 "title": "{{ .Title  }}",
+                {{ end }}
+
                 {{ if eq .Type  "note"  }}
                 "content": {{ .Params.content | plainify }}, // Strip out HTML tags
                 {{ else if eq .Type  "image" }}
-                "content": {{ .Params.description | plainify }}, // Strip out HTML tags
+                "content": "{{ .Params.description  }}", // Strip out HTML tags
                 {{ else if eq .Type "like"  }}
                 "content": {{ .Params.title }}, // Strip out HTML tags
                 {{ else }}
                 "content": {{ .Content | plainify }}, // Strip out HTML tags
                 {{ end }}
+                
                 "url": "{{ .Permalink }}",
-                "tags": [{{ range .Params.Tags }}"{{ . }}",{{ end }}],
+                "tags": [{{ range .Params.tags }}"{{ . }}",{{ end }}],
             },
         {{ end }}
     }
