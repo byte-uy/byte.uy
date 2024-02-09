@@ -8,8 +8,8 @@ Mis intereses principales son la Optimización y la programación de Motores de 
 
 Hice unas pequeñas contribuciones a Unreal Engine:
 
-- [Add Linux and Mac support to GenerateClangDatabase in UBT](http://byte.uy/0x1)
-- [Replace UE4 ocurrences with UE5](0x3)
+- [Add Linux and Mac support to GenerateClangDatabase in UBT](/0x1)
+- [Replace UE4 ocurrences with UE5](/0x3)
 
 Trabajo en un estudio de outsourcing donde contribuí con un AAA usando Unreal Engine 4, y actualmente estoy trabajando en otro AAA usando Unreal Development Kit (UE3).
 

@@ -8,8 +8,8 @@ My main interest is on Optimization and Game Engine Programming. I’m very inte
 
 I did some small contributions to Unreal Engine:
 
-- [Add Linux and Mac support to GenerateClangDatabase in UBT](http://byte.uy/0x2)
-- [Replace UE4 ocurrences with UE5](0x3)
+- [Add Linux and Mac support to GenerateClangDatabase in UBT](/0x2)
+- [Replace UE4 ocurrences with UE5](/0x3)
 
 In my day job I work in an outsourcing studio where I contributed with a AAA titles using Unreal Engine 4, and I’m currently working on a AAA title using Unreal Development Kit (UE3).
 
