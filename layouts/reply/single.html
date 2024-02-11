@@ -1,7 +1,8 @@
 {{ define "main" }}
   {{ partial "single/header.html" . }}
   ↩️
-  <h3><a href="{{ .Params.pageURL | safeHTML }}" target="_blank">{{ .Params.title }}</a></h3>
+  
+  <h3><a href="{{ .Params.pageURL }}" target="_blank">{{ .Params.title }}</a></h3>
   <p>{{ .Params.content }}</p>
 
   {{ partial "single/footer.html" . }}
