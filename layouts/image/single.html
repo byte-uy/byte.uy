@@ -1,9 +1,9 @@
 {{ define "main" }}
   {{ partial "single/header.html" . }}
 
-  <div>
-    <img src="{{ .Params.Image }}" alt="{{ .Params.Description }}">
-  </div>
+  <article class="h-entry">
+    <img class="u-photo" src="{{ .Params.Image }}" alt="{{ .Params.Description }}">
+  </article>
   <p>{{ .Params.Description }}</p>
 
   {{ partial "single/footer.html" . }}

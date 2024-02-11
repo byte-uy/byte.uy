@@ -2,7 +2,8 @@
     {{ partial "li/header.html" . }}
     ↩️ 
     <p>
-        <a href="https://{{ .Params.pageURL }}" target="_blank">{{ .Params.title }}</a>: {{ .Params.content }}
+        <a class="u-in-reply-to" href="https://{{ .Params.pageURL }}" target="_blank">{{ .Params.title }}</a>: 
+        <p class="e-content">{{ .Params.content }}</p>
     </p>
     {{ partial "li/footer.html" . }}
 </article>

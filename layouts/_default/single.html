@@ -1,10 +1,16 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+  <article class="h-entry">
 
-  {{ partial "single/header.html" . }}
+    <h1 class="p-name">{{ .Title }}</h1>
+  
+    {{ partial "single/header.html" . }}
+  
+    <div class="e-content">
+      {{ .Content }}
+    </div>
+  
+    {{ partial "single/footer.html" . }}
 
-  {{ .Content }}
-
-  {{ partial "single/footer.html" . }}
+  </article>
 
 {{ end }}
