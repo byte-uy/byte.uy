@@ -13,6 +13,16 @@
   {{- end }}
 {{- end }}
 
+<h2>{{ i18n "interactions" }}</h2>
+<p>{{ i18n "useswebmentions"}} <a href=http://indieweb.org/webmention>WebMention</a>.</p>
+<div class=manual-webmention>
+    <p>{{ i18n "writtenresponse" }} <a href=https://indieweb.org/responses>{{ i18n "response" }}</a> {{ i18n "letmeknowtheurl" }}</p>
+    <form id=manual-webmention action=https://webmention.io/byte.uy/webmention method=post>
+        <input type=url name=source>
+        <input type=hidden name=target value="{{ .Permalink }}"/>
+        <input type=submit name=submit value="{{ i18n "sendwebmention" }}">
+    </form>
+</div>
 
 <div id="webmentions" class="row">
 </div>
