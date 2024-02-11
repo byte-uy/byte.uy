@@ -8,6 +8,8 @@
       {{ partial "li/note.html" . }}
     {{ else if eq .Type "like" }}
       {{ partial "li/like.html" . }}
+    {{ else if eq .Type "reply" }}
+      {{ partial "li/reply.html" . }}
     {{ else }}
       <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
       {{ .Summary }}

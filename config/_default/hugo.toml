@@ -1,5 +1,5 @@
-baseURL = 'https://mati.byte.uy/'
-title = 'MATI.BYTE.UY'
+baseURL = 'https://byte.uy/'
+title = 'BYTE.UY'
 paginate = 10
 
 defaultContentLanguage = 'es'
@@ -9,7 +9,7 @@ defaultContentLanguageInSubdir = false
     languageName = 'Español'
     weight = 10
     contentDir = 'content/es'
-    title = 'MATI.BYTE.UY'
+    title = 'BYTE.UY'
     languageCode = 'es-UY'
     [languages.es.params]
       description = 'Blog personal de Matias Arocena'
@@ -17,7 +17,7 @@ defaultContentLanguageInSubdir = false
     languageName = 'English'
     weight = 20
     contentDir = 'content/en'
-    title = 'MATI.BYTE.UY'
+    title = 'BYTE.UY'
     languageCode = 'en-US'
     [languages.en.params]
       description = 'Personal blog of Matias Arocena'

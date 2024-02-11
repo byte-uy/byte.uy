@@ -3,7 +3,7 @@
   ❤️ 
 
   <p>
-    <a href="{{ .Params.url }}" target="_blank">{{ .Params.title }}</a>
+    <a href="{{ .Params.pageURL | safeHTML }}" target="_blank">{{ .Params.title }}</a>
   </p>
 
   {{ partial "single/footer.html" . }}
