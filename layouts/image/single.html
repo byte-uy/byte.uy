@@ -3,8 +3,8 @@
 
   <article class="h-entry">
     <img class="u-photo" src="{{ .Params.Image }}" alt="{{ .Params.Description }}">
+    <p class="e-content">{{ .Params.Description }}</p>
   </article>
-  <p>{{ .Params.Description }}</p>
 
   {{ partial "single/footer.html" . }}
 

@@ -1,10 +1,10 @@
 {{ define "main" }}
-  {{ partial "single/header.html" . }}
-  💬
-  <p>
-      <a class="u-in-reply-to" href="{{ .Params.pageURL }}" target="_blank">{{ .Params.title }}</a>: 
-      <p class="e-content">{{ .Params.content }}</p>
-  </p>
+{{ partial "single/header.html" . }}
+  <article class="h-entry">
+    💬
+    <a class="u-in-reply-to" href="{{ .Params.pageURL }}" target="_blank">{{ .Params.title }}</a>: 
+    <p class="e-content">{{ .Params.content }}</p>
+  </article>
   {{ partial "single/footer.html" . }}
 
 {{ end }}
