@@ -2,5 +2,15 @@
 {{ $dateHuman := .Date | time.Format ":date_long" }}
 
 <ul>
-    <a class="u-url" href="{{ .RelPermalink }}"><time class="dt-published" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time></a>
+    {{ if eq .Type "image" }}
+        <li>📷</li>
+    {{ else if eq .Type "note" }}
+        <li>📝</li>
+    {{ else if eq .Type "like" }}
+        <li>❤️</li>
+    {{ else if eq .Type "reply" }}
+        <li>💬</li>
+    {{ end }}
+
+    <li><a class="u-url" href="{{ .RelPermalink }}"><time class="dt-published" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time></a></li>
 </ul>
