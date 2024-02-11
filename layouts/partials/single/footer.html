@@ -1,1 +1,19 @@
-<div id="webmentions"></div>
+{{ $currentPostLink := .RelPermalink }}
+{{ $siteURL := strings.TrimSuffix "/" .Site.BaseURL }}
+{{- with resources.Get "js/webmentions.js" }}
+  {{- if eq hugo.Environment "development" }}
+    {{- with . | js.Build }}
+      <script src="{{ .RelPermalink }}" comments-are-reactions="true"></script>
+
+    {{- end }}
+  {{- else }}
+    {{- $opts := dict "minify" true }}
+    {{- with . | js.Build $opts | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous" comments-are-reactions="true"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+
+<div id="webmentions" class="row">
+</div>
