@@ -1,9 +1,8 @@
-{{ $currentPostLink := .RelPermalink }}
-{{ $siteURL := strings.TrimSuffix "/" .Site.BaseURL }}
+{{ $siteURL := .Site.BaseURL }}
 {{- with resources.Get "js/webmentions.js" }}
   {{- if eq hugo.Environment "development" }}
     {{- with . | js.Build }}
-      <script src="{{ .RelPermalink }}" comments-are-reactions="true"></script>
+      <script src="{{ .RelPermalink }}" comments-are-reactions="true" page-url="{{ $siteURL }}"></script>
 
     {{- end }}
   {{- else }}
