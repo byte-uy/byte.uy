@@ -15,5 +15,5 @@ location /0x3 {
 }
 
 location /0x4 {
-    return 302 https://google.com/;
+    return 302 https://google.com/
 }
