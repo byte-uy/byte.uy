@@ -4,5 +4,5 @@ draft = false
 pageURL = ""
 title = ""
 content = ""
-tags = ['reply', 'respuesta']
+tags = ['reply']
 +++
