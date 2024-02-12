@@ -847,14 +847,14 @@ select:-webkit-autofill:focus {
 }
 
 /*@media screen and (max-width: 480px) { <-- Changed this */
-@media screen and (max-width: 650px) { 
+@media screen and (max-width: 775px) { 
   form {
     width: 100%;
   }
 }
 
 /*@media only screen and (min-width: 30em) { <-- Changed this */
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 775px) {
   .terminal-nav {
     flex-direction: row;
     align-items: center;
