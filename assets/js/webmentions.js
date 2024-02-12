@@ -321,7 +321,7 @@ A more detailed example:
 
       const markup = comments
         .map((c) => {
-          const image = reactImage(c, true);
+          //const image = reactImage(c, true);
   
           let source = entities(c.url.split('/')[2]);
           if (c.author && c.author.name) {
@@ -341,7 +341,7 @@ A more detailed example:
   
           const type = `<span class="${linkclass}">${linktext}</span>`;
   
-          return `<li>${image} ${link} ${type}</li>`;
+          return `<li>${link}: ${type}</li>`;
         })
       .join('');
       return `
