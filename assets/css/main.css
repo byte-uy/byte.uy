@@ -1,0 +1,52 @@
+body {
+    background-color: #222;
+    color: white;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+main img {
+    width: 100%;
+    height: auto;
+    border-radius: 1%;
+}
+
+a {
+    color: white;
+}
+
+/* Create a container for the menu */
+header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+}
+  
+@media (max-width: 720px) {
+    header {
+        flex-direction: column;
+    }
+}
+
+header ul { 
+    list-style-type: none;
+    margin: 0; 
+    padding: 0; 
+    padding-top: 10%;
+}
+
+header ul li {
+    display: inline-block;
+    margin-right: 10px;
+} 
+
+#search-input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: #222;
+    color: white;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
