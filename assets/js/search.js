@@ -3491,7 +3491,7 @@ function displayResults (results, store) {
             <li>
             <h2>
             <a href="${item.url}">${item.title}</a>
-            </h2>'
+            </h2>
             <p>${item.content.substring(0, 150)}...</p>
             </li>
             `;
@@ -3500,7 +3500,11 @@ function displayResults (results, store) {
         searchResults.innerHTML = resultList
     } else {
         // if no result return this feedback
-        searchResults.innerHTML = 'No results found.'
+        if (document.documentElement.lang == "en-US") {
+            searchResults.innerHTML = 'No results found.'
+        } else {
+            searchResults.innerHTML = 'No se encontraron resultados.'
+        }
     }
 }
 
@@ -3543,5 +3547,9 @@ if (query) {
     displayResults(results, window.store)
     
     // Replace the title to 'Search Results for <query>' so user know if the search is successful
-    document.getElementById('search-title').innerText = 'Search Results for ' + query
+    if (document.documentElement.lang == "en-US") {
+        document.getElementById('search-title').innerText = 'Search Results for ' + query
+    } else {
+        document.getElementById('search-title').innerText = 'Resultados de la busqueda para ' + query
+    }
 }

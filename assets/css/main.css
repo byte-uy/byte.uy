@@ -1,52 +1,97 @@
-body {
-    background-color: #222;
-    color: white;
-    padding-left: 10%;
-    padding-right: 10%;
+:root {
+    --global-font-size: 15px;
+    --global-line-height: 1.4em;
+    --global-space: 10px;
+    --font-stack: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    --mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    --background-color: #222225;
+    --page-width: 60em;
+    --font-color: #e8e9ed;
+    --invert-font-color: #222225;
+    --primary-color: #62c4ff;
+    --secondary-color: #a3abba;
+    --error-color: #ff3c74;
+    --progress-bar-background: #3f3f44;
+    --progress-bar-fill: #62c4ff;
+    --code-bg-color: #3f3f44;
+    --input-style: solid;
+    --display-h1-decoration: none;
 }
 
-main img {
-    width: 100%;
-    height: auto;
-    border-radius: 1%;
+.terminal-menu {
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-a {
-    color: white;
+.terminal-nav {
+    margin-bottom: 5px;
+    border-bottom: 1px solid var(--secondary-color);
 }
 
-/* Create a container for the menu */
-header {
+footer {
     display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #ccc;
-}
-  
-@media (max-width: 720px) {
-    header {
-        flex-direction: column;
-    }
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5px;
+    border-top: 1px solid var(--secondary-color);
 }
 
-header ul { 
-    list-style-type: none;
-    margin: 0; 
-    padding: 0; 
-    padding-top: 10%;
-}
-
-header ul li {
-    display: inline-block;
-    margin-right: 10px;
-} 
-
-#search-input {
+footer aside {
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    background-color: #222;
-    color: white;
-    border: 2px solid #ccc;
-    border-radius: 4px;
+    border-bottom: 1px dashed var(--secondary-color);
+    margin-top: 10px;
+}
+
+footer aside img {
+    width: 20%;
+    height: auto;
+    border-radius: 50%;
+}
+
+footer ul > li::after {
+    content: "";
+}
+
+footer aside ul li {   
+    padding-left: 0%;
+}
+
+.post-info ul {
+    display: flex;
+}
+
+.post-info ul > li::after {
+    content: "";
+}
+
+.post-info ul li {   
+    padding-left: 0%;
+    padding-right: 5px;
+}
+
+ul.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul.pagination > li::after {
+    content: "";
+}
+
+article {
+    border-bottom: 1px dashed var(--secondary-color);
+}
+
+main.container {
+    margin-bottom: 5px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
 }

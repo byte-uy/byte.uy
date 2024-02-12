@@ -314,7 +314,11 @@ A more detailed example:
      * @returns string
      */
     function formatComments(comments) {
-      const headline = `<h2>${t('Responses')}</h2>`;
+      let headline = `<h2>${t('Respuestas')}</h2>`;
+      if (document.documentElement.lang == "en-US") {
+        headline = `<h2>${t('Responses')}</h2>`;
+      } 
+
       const markup = comments
         .map((c) => {
           const image = reactImage(c, true);
