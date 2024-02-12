@@ -2,15 +2,7 @@
   {{ .Content }}
 
   {{ range .Paginator.Pages }}
-    {{ if eq .Type "image" }}
-      {{ partial "li/image.html" . }}
-    {{ else if eq .Type "note" }}
-      {{ partial "li/note.html" . }}
-    {{ else if eq .Type "like" }}
-      {{ partial "li/like.html" . }}
-    {{ else if eq .Type "reply" }}
-      {{ partial "li/reply.html" . }}
-    {{ else }}
+    {{ if eq .Type "posts" }}
       <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
       {{ .Summary }}
     {{ end }}
