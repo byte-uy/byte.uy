@@ -2,7 +2,7 @@
 title = '[Unreal Engine] Add Linux and Mac support to GenerateClangDatabase in UBT'
 date = 2023-12-14T09:00:00-07:00
 draft = false
-tags = ['unreal', 'contribution']
+tags = ['unreal', 'contribucion']
 +++
 
 
