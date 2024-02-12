@@ -245,7 +245,6 @@ A more detailed example:
           title="${who} ${response}"
           href="${r[mentionSource]}"
         >
-          ${authorPhoto}
           ${(reactEmoji[r['wm-property']] || '💥')}
           ${rsvp}
         </a>
@@ -321,7 +320,7 @@ A more detailed example:
 
       const markup = comments
         .map((c) => {
-          //const image = reactImage(c, true);
+          const image = reactImage(c, true);
   
           let source = entities(c.url.split('/')[2]);
           if (c.author && c.author.name) {
