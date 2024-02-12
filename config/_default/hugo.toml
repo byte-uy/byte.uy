@@ -1,6 +1,6 @@
 baseURL = 'https://byte.uy/'
 title = 'BYTE.UY'
-paginate = 3
+paginate = 10
 
 defaultContentLanguage = 'es'
 defaultContentLanguageInSubdir = false
