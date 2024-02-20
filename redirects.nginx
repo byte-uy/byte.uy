@@ -1,13 +1,13 @@
 location /0x0 {
-    return 302 /;
+    return 302 https://mati.byte.uy/;
 }
 
 location /0x1 {
-    return 301 /posts/clangdatabasesupportforubt;
+    return 301 https://mati.byte.uy/posts/clangdatabasesupportforubt;
 }
 
 location /0x2 {
-    return 301 /en/posts/clangdatabasesupportforubt;
+    return 301 https://mati.byte.uy/en/posts/clangdatabasesupportforubt;
 }
 
 location /0x3 {
