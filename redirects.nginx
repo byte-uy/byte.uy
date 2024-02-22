@@ -13,3 +13,7 @@ location /0x2 {
 location /0x3 {
     return 301 https://github.com/EpicGames/UnrealEngine/pull/8527; 
 }
+
+location /logs {
+    return 301 https://mati.byte.uy/logs/;
+}
