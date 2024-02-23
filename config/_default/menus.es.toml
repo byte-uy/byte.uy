@@ -13,8 +13,3 @@ weight = 20
 name = '/bin/whoami'
 pageRef = '/about'
 weight = 30
-
-[[main]]
-name = '/etc/english'
-url = '/en'
-weight = 40
