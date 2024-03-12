@@ -13,4 +13,6 @@ I did some small contributions to Unreal Engine:
 
 In my day job I work in an outsourcing studio where I contributed with a AAA titles using Unreal Engine 4, and I’m currently working on a AAA title using Unreal Development Kit (UE3).
 
+I also consider myself very flexible at work. I worked as data engineer for a search engine and I developed microservices using Go and Java Spring. When developing games, I consider myself a generalist. I already mentioned my favorite areas but I don't shy away from UI work or console deployments and tools. I like to learn new things and improve whatever we need.
+
 When I’m not programming, I enjoy going to the park with my two dogs and watch some anime with my fiancee (we actually have a shop where we sell anime merch). But not gonna lie, most of the time I’m programming.
