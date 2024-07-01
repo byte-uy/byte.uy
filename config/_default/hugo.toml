@@ -1,5 +1,5 @@
-baseURL = 'https://mati.byte.uy/'
-title = 'BYTE.UY'
+baseURL = 'https://atomatikon.com/'
+title = 'ATOMATIKON'
 paginate = 10
 
 defaultContentLanguage = 'es'
@@ -9,7 +9,7 @@ defaultContentLanguageInSubdir = false
     languageName = 'Español'
     weight = 10
     contentDir = 'content/es'
-    title = 'BYTE.UY'
+    title = 'ATOMATIKON'
     languageCode = 'es-UY'
     [languages.es.params]
       description = 'Blog personal de Matias Arocena'
@@ -17,7 +17,7 @@ defaultContentLanguageInSubdir = false
     languageName = 'English'
     weight = 20
     contentDir = 'content/en'
-    title = 'BYTE.UY'
+    title = 'ATOMATIKON'
     languageCode = 'en-US'
     [languages.en.params]
       description = 'Personal blog of Matias Arocena'

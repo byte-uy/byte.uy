@@ -1,19 +1,15 @@
 location /0x0 {
-    return 302 https://mati.byte.uy/;
+    return 302 https://atomatikon.com/;
 }
 
 location /0x1 {
-    return 301 https://mati.byte.uy/posts/clangdatabasesupportforubt;
+    return 301 https://atomatikon.com/posts/clangdatabasesupportforubt;
 }
 
 location /0x2 {
-    return 301 https://mati.byte.uy/en/posts/clangdatabasesupportforubt;
+    return 301 https://atomatikon.com/en/posts/clangdatabasesupportforubt;
 }
 
 location /0x3 {
     return 301 https://github.com/EpicGames/UnrealEngine/pull/8527; 
-}
-
-location /logs {
-    return 301 https://mati.byte.uy/logs/;
 }
