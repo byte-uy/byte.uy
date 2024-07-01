@@ -5,7 +5,7 @@
       <script src="{{ .RelPermalink }}" comments-are-reactions="true" page-url="{{ $siteURL }}"></script>
 
     {{- end }}
-  {{- else }}
+  {{- else }} 
     {{- $opts := dict "minify" true }}
     {{- with . | js.Build $opts | fingerprint }}
       <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous" comments-are-reactions="true"></script>
