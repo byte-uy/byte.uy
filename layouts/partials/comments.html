@@ -1,0 +1,31 @@
+{{ $path := .RelPermalink }} 
+{{ $json := getJSON "/static/data/comments.json" }}
+<ul>
+  {{ range $json }}
+    {{ if eq .path $path }}
+      <li>
+        <strong>{{ .name }}</strong> (<a href="{{ .website }}">{{ .website }}</a>) said:
+        <blockquote>{{ .comment }}</blockquote>
+        <time>{{ .date }}</time>
+      </li>
+    {{ end }}
+  {{ end }}
+</ul>
+
+<form id="commentForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="website">Website:</label>
+    <input type="url" id="website" name="website" placeholder="optional">
+    <br />
+    <label for="comment">Comment:</label>
+    <textarea id="comment" name="comment" required></textarea>
+
+    <input type="hidden" id="path" name="path" value="{{ .RelPermalink }}">
+    <input type="hidden" id="date" name="date" value="{{ now.Format "2006-01-02 15:04:05" }}">
+
+    <br />
+    <button type="submit">Comment</button>
+</form>
+<div id="message"></div>
