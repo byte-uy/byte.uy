@@ -1,12 +1,12 @@
 {{ $path := .RelPermalink }} 
 {{ $json := getJSON "/static/data/comments.json" }}
+
 <ul>
   {{ range $json }}
-    {{ if eq .path $path }}
+    {{ if eq .comment_path $path }}
       <li>
-        <strong>{{ .name }}</strong> (<a href="{{ .website }}">{{ .website }}</a>) said:
+        <strong>{{ .author_name }}</strong> ( <time>{{ .date }}</time> <a href="{{ .author_website }}">{{ .author_website }}</a> ):
         <blockquote>{{ .comment }}</blockquote>
-        <time>{{ .date }}</time>
       </li>
     {{ end }}
   {{ end }}
