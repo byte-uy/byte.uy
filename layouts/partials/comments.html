@@ -12,18 +12,17 @@
   {{ end }}
 </ul>
 
-<form id="commentForm">
+<form id="commentForm" action="/api/comments" method="post" >
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
+    <input type="text" id="author_name" name="author_name" required>
 
     <label for="website">Website:</label>
-    <input type="url" id="website" name="website" placeholder="optional">
+    <input type="url" id="author_website" name="author_website" placeholder="optional">
     <br />
     <label for="comment">Comment:</label>
     <textarea id="comment" name="comment" required></textarea>
 
-    <input type="hidden" id="path" name="path" value="{{ .RelPermalink }}">
-    <input type="hidden" id="date" name="date" value="{{ now.Format "2006-01-02 15:04:05" }}">
+    <input type="hidden" id="comment_path" name="comment_path" value="{{ .RelPermalink }}">
 
     <br />
     <button type="submit">Comment</button>
