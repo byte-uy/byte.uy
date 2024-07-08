@@ -1,12 +1,5 @@
 [
     {
-        "name": "John Doe",
-        "website": "https://example.com",
-        "comment": "Testing comments!",
-        "path": "/note/2024-02-07-01-25-55/",
-        "date": "2024-02-07T01:25:55.000Z"
-    },
-    {
         "author_name": "Mati",
         "comment": "Test",
         "comment_path": "/note/2024-02-07-01-25-55/",
@@ -17,17 +10,5 @@
         "comment": "Test 2",
         "comment_path": "/note/2024-02-07-01-25-55/",
         "date": "2024-07-08 02:08:50"
-    },
-    {
-        "author_name": "mati",
-        "comment": "Test 3",
-        "comment_path": "/note/2024-02-07-01-25-55/",
-        "date": "2024-07-08 02:38:35"
-    },
-    {
-        "author_name": "mati",
-        "comment": "Test 4",
-        "comment_path": "/note/2024-02-07-01-25-55/",
-        "date": "2024-07-08 02:42:00"
     }
 ]
