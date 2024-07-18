@@ -4,6 +4,14 @@ paginate = 10
 
 defaultContentLanguage = 'es'
 defaultContentLanguageInSubdir = false
+
+[params.author]
+  email = "me@atomatikon.com"
+  name = "Matias Arocena - Atomatikon"
+
+[outputs]
+  home = ['html', 'rss']
+
 [languages]
   [languages.es]
     languageName = 'Español'
