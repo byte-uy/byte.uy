@@ -16,6 +16,12 @@ Renders a menu for the given menu ID.
       {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
       
       {{ if eq $page.Language.Lang "es" }}
+      <li><a href="{{ "/index.xml" | absURL }}">/share/rss</a></li>
+      {{ else }}
+      <li><a href="{{ "/en/index.xml" | absURL }}">/share/rss</a></li>
+      {{ end }}
+
+      {{ if eq $page.Language.Lang "es" }}
         <li><a href="{{ site.BaseURL }}en{{ $page.RelPermalink }}">/etc/english</a></li>
       {{ else }}
         <li><a href="{{ site.BaseURL }}{{ substr $page.RelPermalink 4 }}">/etc/español</a></li>

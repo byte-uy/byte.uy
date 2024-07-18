@@ -1,15 +1,9 @@
-
-[[main]]
-name = '/home'
-pageRef = '/'
-weight = 10
-
 [[main]]
 name = '/var/logs'
 pageRef = '/logs'
-weight = 20
+weight = 10
 
 [[main]]
 name = '/bin/whoami'
 pageRef = '/about'
-weight = 30
+weight = 20
