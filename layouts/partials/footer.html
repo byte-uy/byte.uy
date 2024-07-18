@@ -1,6 +1,7 @@
 <aside>
     {{ partial "tagcloud.html" . }}
 </aside>
+{{ if eq .RelPermalink "/about/" }}
 <aside>
     <div class="hcard-display h-card vcard u-author p-author">
         <div class="hcard-header">
@@ -28,6 +29,7 @@
         <meta itemprop="url" content="{{ i18n "siteurl" }}" />
     </div>    
 </aside>
+{{ end }}
 <aside>
     <a href="https://xn--sr8hvo.ws/previous">←</a>
     <a href="https://xn--sr8hvo.ws">IndieWeb Webring</a>
