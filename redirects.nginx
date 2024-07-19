@@ -1,5 +1,5 @@
 location /0x0 {
-    return 302 https://atomatikon.com/;
+    return 302 https://atomatikon.com/logs;
 }
 
 location /0x1 {
