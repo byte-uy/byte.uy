@@ -14,12 +14,6 @@ Renders a menu for the given menu ID.
   <nav class="terminal-menu">
     <ul>
       {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-      
-      {{ if eq $page.Language.Lang "es" }}
-      <li><a href="{{ "/index.xml" | absURL }}">/share/rss</a></li>
-      {{ else }}
-      <li><a href="{{ "/en/index.xml" | absURL }}">/share/rss</a></li>
-      {{ end }}
 
       {{ if eq $page.Language.Lang "es" }}
         <li><a href="{{ site.BaseURL }}en{{ $page.RelPermalink }}">/etc/english</a></li>
