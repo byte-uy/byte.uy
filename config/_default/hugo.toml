@@ -1,13 +1,13 @@
-baseURL = 'https://atomatikon.com/'
-title = 'ATOMATIKON'
+baseURL = 'https://mati.arocena.dev/'
+title = 'MATI.AROCENA.DEV'
 paginate = 10
 
 defaultContentLanguage = 'es'
 defaultContentLanguageInSubdir = false
 
 [params.author]
-  email = "me@atomatikon.com"
-  name = "Matias Arocena - Atomatikon"
+  email = "mati@arocena.dev"
+  name = "Matias Arocena"
 
 [outputs]
   home = ['html', 'rss']
@@ -17,7 +17,7 @@ defaultContentLanguageInSubdir = false
     languageName = 'Español'
     weight = 10
     contentDir = 'content/es'
-    title = 'ATOMATIKON'
+    title = 'MATI.AROCENA.DEV'
     languageCode = 'es-UY'
     [languages.es.params]
       description = 'Blog personal de Matias Arocena'
@@ -25,7 +25,7 @@ defaultContentLanguageInSubdir = false
     languageName = 'English'
     weight = 20
     contentDir = 'content/en'
-    title = 'ATOMATIKON'
+    title = 'MATI.AROCENA.DEV'
     languageCode = 'en-US'
     [languages.en.params]
       description = 'Personal blog of Matias Arocena'
