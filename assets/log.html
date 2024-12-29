@@ -1,0 +1,39 @@
+{% extends 'content.html' %}
+
+{% block title %}Logs | MATI.AROCENA.DEV{% endblock %}
+
+{% block content %}
+<article class="h-entry">
+    <div class="post-info">
+        <ul>
+            <li>
+                {% if log.type == 'note' %}
+                📝
+                {% else %}
+                📷
+                {% endif %}
+            </li>
+            <li>
+                {% if lang == 'es-UY' %}
+                <a class="u-url" href="/logs/{{ log.url_slug }}"><time class="dt-published" datetime="{{ log.date }}T{{ log.time }}-03:00">{{ log.date }}</time></a>
+                {% else %}
+                <a class="u-url" href="/en/logs/{{ log.url_slug }}"><time class="dt-published" datetime="{{ log.date }}T{{ log.time }}-03:00">{{ log.date }}</time></a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+    {% if log.type == 'photo' %}
+        {% if lang == 'es-UY' %}
+        <img class="u-photo" src="/img/{{ log.image_url }}" alt="{{ log.content_es }}" />
+        {% else %}
+        <img class="u-photo" src="/img/{{ log.image_url }}" alt="{{ log.content_en }}" />
+        {% endif %}
+    {% endif %}
+    {% if lang == 'es-UY' %}
+    <p class="e-content">{{ log.content_es }}</p>
+    {% else %}
+    <p class="e-content">{{ log.content_en }}</p>
+    {% endif %}
+</article>
+
+{% endblock %}

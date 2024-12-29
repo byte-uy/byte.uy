@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+
+{% block interactions %}
+<form id="commentForm" action="{{ comments_endpoint }}" method="post" >
+    <label for="name">Name:</label>
+    <input type="text" id="author_name" name="author_name" required>
+
+    <label for="website">Website:</label>
+    <input type="url" id="author_website" name="author_website" placeholder="optional">
+    <br />
+    <label for="comment">Comment:</label>
+    <textarea id="comment" name="comment" required></textarea>
+
+    <input type="hidden" id="comment_path" name="comment_path" value="{{ path }}{{ current_page }}">
+
+    <br />
+    <button type="submit">Comment</button>
+</form>
+<div class="interactions">
+    <h2>Comments</h2>
+    <ul>
+        {% for comment in comments %}
+        <li>
+            <p>{{ comment.comment }}</p>
+
+            {% if comment.website %}
+            <p>By: <a href="{{ comment.website }}">{{ comment.author }}</a></p>
+            {% else %}
+            <p>By: {{ comment.author }}</p>
+            {% endif %}
+            <p>On: {{ comment.date }} at {{ comment.time }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.getElementById('commentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let form = e.target;
+        let formData = new FormData(form);
+        fetch(form.action, {
+            method: form.method,
+            body: formData
+        })
+        .then(response => {
+            if (response.status !== 200) {
+                {% if lang == 'es-UY' %}
+                notify('Hubo un error al enviar el comentario');
+                {% else %}
+                notify('There was an error submitting the comment');
+                {% endif %}
+                return;
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.status === 'success') {
+                {% if lang == 'es-UY' %}
+                notify('Comentario enviado con éxito');
+                {% else %}
+                notify('Comment submitted successfully');
+                {% endif %}
+                form.reset();
+            } else {
+                {% if lang == 'es-UY' %}
+                notify('Hubo un error al enviar el comentario');
+                {% else %}
+                notify('There was an error submitting the comment');
+                {% endif %}
+            }
+        });
+    });
+</script>
+{% endblock %}

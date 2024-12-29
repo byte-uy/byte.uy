@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% if lang == 'es-UY' %}
+    <meta name="description" content="Blog personal de Matias Arocena">
+    {% else %}
+    <meta name="description" content="Matias Arocena's personal blog">
+    {% endif %}
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+    
+    {% for social in socials %}
+    <link rel="me" href="{{ social.url }}" />
+    {% endfor %}
+
+    <meta property="og:title" content="MATI.AROCENA.DEV" />
+    <meta property="og:site_name" content="MATI.AROCENA.DEV" />
+
+
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+
+
+    <title>{% block title %}MATI.AROCENA.DEV{% endblock %}</title>
+
+    <link rel="stylesheet" href="/css/terminal.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body class="terminal">
+    <div id="notification-container" class="notification-container"></div>
+    <header class="terminal-nav container">
+        <div class="logo terminal-prompt">
+            <a class="no-style" href="https://mati.arocena.dev/">MATI.AROCENA.DEV</a>
+        </div>
+        <nav class="terminal-menu">
+            <ul>
+                {% if lang == 'es-UY' %}
+                <li><a {% if current_page == 'home' %}class="active"{% endif %} href="/">/home</a></li>
+                <li><a id="logs" {% if current_page == 'logs' %}class="active"{% endif %} href="/logs">/var/logs</a></li>
+                <li><a id="about" {% if current_page == 'about' %}class="active"{% endif %} href="/about">/bin/whoami</a></li>
+                {% if current_page == 'home' %}
+                <li><a id="english" {% if current_page == 'english' %}class="active"{% endif %} href="/en/">/etc/english</a></li>
+                {% else %}
+                <li><a id="english" {% if current_page == 'english' %}class="active"{% endif %} href="/en/{{ current_page }}">/etc/english</a></li>
+                {% endif %}
+                <form id="search" action='/search/' method="get">
+                    <input type="text" id="search-box" name="query" placeholder="🔍 Buscar..." autocomplete="off" />
+                </form>
+                {% else %}
+                <li><a {% if current_page == 'home' %}class="active"{% endif %} href="/en/">/home</a></li>
+                <li><a id="logs" {% if current_page == 'logs' %}class="active"{% endif %} href="/en/logs">/var/logs</a></li>
+                <li><a id="about" {% if current_page == 'about' %}class="active"{% endif %} href="/en/about">/bin/whoami</a></li>
+                {% if current_page == 'home' %}
+                <li><a id="english" {% if current_page == 'english' %}class="active"{% endif %} href="/">/etc/español</a></li>
+                {% else %}
+                <li><a id="english" {% if current_page == 'english' %}class="active"{% endif %} href="/{{ current_page }}">/etc/español</a></li>
+                {% endif %}
+                <form id="search" action='/en/search/' method="get">
+                    <input type="text" id="search-box" name="query" placeholder="🔍 Search..." autocomplete="off" />
+                </form>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        {% block content %}{% endblock %}
+        {% block interactions %}{% endblock %}
+    </main>
+    <footer class="container">
+        {% block footer %}
+        {% endblock %}
+        <aside>
+            {% if lang == 'es-UY' %}
+            <p><a href="/rss.xml" type="application/rss+xml" title="Suscribirse al RSS de Blogs">Suscribirse al RSS de Blogs</a></p>
+            <p><a href="/logs.xml" type="application/rss+xml" title="Suscribirse al RSS de Logs">Suscribirse al RSS de Logs</a></p>
+            {% else %}
+            <p><a href="/en/rss.xml" type="application/rss+xml" title="Subscribe to Blog's RSS">Subscribe to Blog's RSS</a></p>
+            <p><a href="/en/logs.xml" type="application/rss+xml" title="Subscribe to Logs' RSS">Subscribe to Logs' RSS</a></p>
+            {% endif %}
+        </aside>
+    </footer>
+    <script src="/js/main.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

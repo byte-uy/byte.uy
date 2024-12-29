@@ -1,0 +1,39 @@
+{% extends 'content.html' %}
+
+{% block title %}{{post.title_en}}{% endblock %}
+
+{% block content %}
+<article class="h-entry">
+{% if lang == 'es-UY' %}
+<h1 class="p-name"><a href="/{{ post.url_slug }}">{{ post.title_es }}</a></h1>
+<div class="post-info">
+<ul>
+    <li>
+        <a class="u-url" href="/{{ post.url_slug }}/">
+            <time class="dt-published" datetime="{{ post.date }}T{{ post.time }}:00-03:00">{{ post.date }} {{ post.time }}</time>
+        </a>
+    </li>
+</ul>
+</div>
+<div class="e-content">
+    {{ post.brief_es | safe }}
+    {{ post.content_es | safe }}
+</div>
+{% else %}
+<h1 class="p-name"><a href="/{{ post.url_slug }}">{{ post.title_en }}</a></h1>
+<div class="post-info">
+<ul>
+    <li>
+        <a class="u-url" href="/{{ post.url_slug }}/">
+            <time class="dt-published" datetime="{{ post.date }}T{{ post.time }}:00-03:00">{{ post.date }} {{ post.time }}</time>
+        </a>
+    </li>
+</ul>
+</div>
+<div class="e-content">
+    {{ post.brief_en | safe }}
+    {{ post.content_en | safe }}
+</div>
+{% endif %}
+</article>
+{% endblock %}

@@ -1,0 +1,8 @@
+{
+    "DATA_ENDPOINT": "https://api.endpoint.com/static_data",
+    "DATA_AUTH_TOKEN": "your_auth_token",
+    "COMMENTS_ENDPOINT": "https://api.endpoint.com/comments",
+    "OUTPUT_DIR": "dist",
+    "OUTPUT_REDIRECT_FILE": "dist/redirect.nginx",
+    "TEMPLATE_DIR": "assets"
+}

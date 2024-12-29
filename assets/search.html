@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block title %}Search | MATI.AROCENA.DEV{% endblock %}
+
+{% block content %}
+<div id="results-container">
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script>
+    const documents = [
+        {% for post in posts %}
+        {
+            "url": "/{{ post.url_slug }}",
+            "title_en": "{{ post.title_en }}",
+            "title_es": "{{ post.title_es }}",
+            "content_en": "{{ post.brief_en | striptags | replace('\"', '') }} {{ post.content_en | striptags | replace('\"', '') }}",
+            "content_es": "{{ post.brief_es | striptags | replace('\"', '') }} {{ post.content_es | striptags | replace('\"', '') }}",
+            "tags_en": "{{ post.tags_en }}",
+            "tags_es": "{{ post.tags_es }}",
+            "date": "{{ post.date }}"
+        },
+        {% endfor %}
+        {% for log in logs %}
+        {
+            "url": "/logs/{{ log.url_slug }}",
+            "title_en": "{{ log.date }}",
+            "title_es": "{{ log.date }}",
+            "content_en": "{{ log.content_en | striptags | replace('\"', '') }}",
+            "content_es": "{{ log.content_es | striptags | replace('\"', '') }}",
+            "tags_en": "{{ log.tags_en }}",
+            "tags_es": "{{ log.tags_es }}",
+            "date": "{{ log.date }}"
+        },
+        {% endfor %}
+        {% for social in socials %}
+        {
+            "url": "{{ social.url }}",
+            "title_en": "{{ social.title }}",
+            "title_es": "{{ social.title }}",
+            "content_en": "{{ social.url }}",
+            "content_es": "{{ social.url }}",
+            "tags_en": "{{ social.title }}",
+            "tags_es": "{{ social.title }}",
+        },
+        {% endfor %}
+        {
+            "url": "/about",
+            "title_en": "About",
+            "title_es": "Acerca de",
+            "content_en": "{{ about.content_en | striptags | replace('\"', '') | replace('í', 'i') }}",
+            "content_es": "{{ about.content_es | striptags | replace('\"', '') | replace('í', 'i') }}",
+            "tags_en": "about, whoami",
+            "tags_es": "acerca, whoami",
+        },
+        {
+            "url": "/logs",
+            "title_en": "Logs",
+            "title_es": "Registros",
+            "content_en": "Logs",
+            "content_es": "Registros",
+            "tags_en": "logs",
+            "tags_es": "registros",
+        },
+        {
+            "url": "/",
+            "title_en": "Home",
+            "title_es": "Inicio",
+            "content_en": "Home",
+            "content_es": "Inicio",
+            "tags_en": "home",
+            "tags_es": "inicio",
+        }
+    ];
+
+    let lang = '{{ lang }}';
+
+    let idx; // Lunr index
+
+    // Create the Lunr index
+    idx = lunr(function () {
+        this.ref('url');
+        this.field('title_en');
+        this.field('title_es');
+        this.field('content_en');
+        this.field('content_es');
+        this.field('tags_en');
+        this.field('tags_es');
+        this.field('date');
+
+        documents.forEach(doc => {
+            this.add(doc);
+        });
+    });
+
+    // Perform Search
+    function performSearch(query) {
+        const results = idx.search(query); // Lunr search
+        displayResults(results);
+    }
+
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Initialize search if query parameter exists
+    window.onload = () => {
+        const query = getQueryParam('query');
+        if (query) {
+            document.getElementById('search-box').value = query;
+            performSearch(query);
+        }
+    };
+
+    // Display Search Results
+    function displayResults(results) {
+        const resultsContainer = document.getElementById('results-container');
+        resultsContainer.innerHTML = '';
+
+        if (results.length === 0) {
+            resultsContainer.innerHTML = '<p>No results found.</p>';
+            return;
+        }
+
+        results.forEach(result => {
+            const doc = documents.find(d => d.url === result.ref); // Match doc by URL
+            const resultItem = document.createElement('div');
+            resultItem.classList.add('result-item');
+
+            if (!doc.url.startsWith('http') && lang != 'es-UY')
+            {
+                doc.url = '/en' + doc.url;
+            }
+
+            if (lang === 'es-UY') {
+                resultItem.innerHTML = `
+                <h3><a href="${doc.url}">${doc.title_es}</a></h3>
+                <p>${doc.content_es}</p>
+                `;
+            } else {
+                resultItem.innerHTML = `
+                <h3><a href="${doc.url}">${doc.title_en}</a></h3>
+                <p>${doc.content_en}</p>
+                `;
+            }
+            
+            resultsContainer.appendChild(resultItem);
+        });
+    }
+</script>
+{% endblock %}

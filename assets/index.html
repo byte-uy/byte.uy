@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for post in blogs %}
+<article class="h-entry">
+{% if lang == 'es-UY' %}
+<h1 class="p-name"><a href="/{{ post.url_slug }}">{{ post.title_es }}</a></h1>
+{{ post.brief_es | safe}}
+{% else %}
+<h1 class="p-name"><a href="/en/{{ post.url_slug }}">{{ post.title_en }}</a></h1>
+{{ post.brief_en | safe}}
+{% endif %}
+</article>
+{% endfor %}
+{% endblock %}
+
+{% block footer %}
+<p>
+    <a href="{{ prev_page }}">&lt;</a> | {{ page_number }} | <a href="{{ next_page }}">&gt;</a>
+</p>
+{% endblock %}

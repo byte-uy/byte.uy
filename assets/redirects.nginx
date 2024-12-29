@@ -1,0 +1,5 @@
+{% for redirect in redirects %}
+location /{{redirect.url_slug}} {
+    return {{redirect.http_code}} {{redirect.redirect_to}};
+}
+{% endfor %}
