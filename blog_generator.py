@@ -113,6 +113,8 @@ def blog_to_rss_item(blogs, lang):
 def log_to_rss_item(logs, lang):
     rss_items = []
     for log in logs:
+        if not log['Timestamp']:
+            continue
         combined_date = f"{log['date']} {log['time']}"
         dt = datetime.strptime(combined_date, "%Y-%m-%d %H:%M")
         rss_date = dt.strftime("%a, %d %b %Y %H:%M:%S -0300")
