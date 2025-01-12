@@ -75,9 +75,10 @@ def download_image(url, img_dir, filename = None):
     except Exception as e:
         logging.error(f"Error downloading image {url}: {e}")
         return None
-    
+
 def transform_logs(logs, img_dir):
-    for index, log in enumerate(logs):
+    filtered_logs = [log for log in logs if 'date' in log and log['date']]
+    for index, log in enumerate(filtered_logs):
         log['url_slug'] = f"0x{index:x}"
         if not log['image_url']:
             log['type'] = 'note'
@@ -85,8 +86,8 @@ def transform_logs(logs, img_dir):
             log['type'] = 'photo'
             log['image_url'] = download_image(log['image_url'], img_dir)
     
-    logs.reverse()
-    return logs
+    filtered_logs.reverse()
+    return filtered_logs
 
 def blog_to_rss_item(blogs, lang):
     rss_items = []
