@@ -1,3 +1,4 @@
+import argparse
 import re
 import requests
 import os
@@ -345,12 +346,18 @@ def generate_blog(config):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Generate shop and optionally serve it.')
+    parser.add_argument('--serve', action='store_true', help='Serve the generated shop')
+    args = parser.parse_args()
+
     logging.basicConfig(level=logging.DEBUG)
     config = load_config(CONFIG_PATH)
     generate_blog(config)
-    os.chdir('dist')
-    handler = SimpleHTTPRequestHandler
-    with TCPServer(("", 8080), handler) as httpd:
-        logging.info("Serving at http://localhost:8080/")
-        httpd.serve_forever()
+
+    if args.serve:
+        os.chdir('dist')
+        handler = SimpleHTTPRequestHandler
+        with TCPServer(("", 8080), handler) as httpd:
+            logging.info("Serving at http://localhost:8080/")
+            httpd.serve_forever()
 
