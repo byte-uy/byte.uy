@@ -49,13 +49,13 @@ def get_data_from_endpoint(endpoint_url, auth_token, service):
 
 def download_image(url, img_dir, filename = None):
     try:
-        regex = r'https:\/\/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)\/view\?usp=.*'
+        regex = r'https:\/\/drive\.google\.com\/(file\/d\/|open\?id=)([a-zA-Z0-9_-]+)(\/view\?usp=.*)?'
         match = re.match(regex, url)
 
         if match:
-            file_id = match.group(1)
+            file_id = match.group(2)
             url = f"https://drive.google.com/uc?id={file_id}"
-
+        
         if not filename:
             filename = f"{url.split('id=')[1]}.jpg"
         image_path = os.path.join(img_dir, filename)
